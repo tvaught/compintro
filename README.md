@@ -63,32 +63,37 @@ https://www.raspberrypi.org/documentation/remote-access/vnc/
  Note: for minecraft over VNC, look at these tips:
  ```https://github.com/RealVNC/raspi-preview```
 
-
-4. Set up Miniconda for Raspberry Pi:
-```
-mkdir code
-cd code
-mkdir vendor
-cd vendor
-
-wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh
-
-bash Miniconda3-latest-Linux-armv7l.sh
-```
-(choose defaults for install location etc.)
-
-Next, make a conda environment and install some packages:
+4. install some things into the default python (2.7)
 
 ```
-conda create -n py3 numpy scipy python=3
-source activate py3
-pip install --upgrade pip
-pip install jupyter
-pip install gpio
-
+sudo pip install --upgrade pip
+sudo pip install jupyter
+sudo pip install gpio
+sudo pip install numpy
+sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev gfortran # for scipy install
+sudo pip install scipy
+sudo pip install pandas
 ```
 
 
+
+5. Don't forget to get latest on the raspian distribution:
+
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
+
+
+The ```pip install jupyter``` command fails because of a pip bug.  Adding a path file seems to work:
+
+```
+touch /home/pi/miniconda3/envs/py3/lib/python3.4/site-packages/easy-install.pth
+```
+
+6. The rpi.gpio module needs to be installed via conda:
+
+```conda install -c ericmjl rpi.gpio```
 
 
 TODO:
