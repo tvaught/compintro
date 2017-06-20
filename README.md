@@ -66,10 +66,12 @@ https://www.raspberrypi.org/documentation/remote-access/vnc/
 4. install some things into the default python (2.7)
 
 ```
+sudo apt-get install python-dev  # for other builds
 sudo pip install --upgrade pip
 sudo pip install jupyter
 sudo pip install gpio
 sudo pip install numpy
+# if numpy is already installed, you might want to try sudo pip install --upgrade numpy
 sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev gfortran # for scipy install
 sudo pip install scipy
 sudo pip install pandas
@@ -91,13 +93,16 @@ The ```pip install jupyter``` command fails because of a pip bug.  Adding a path
 touch /home/pi/miniconda3/envs/py3/lib/python3.4/site-packages/easy-install.pth
 ```
 
-6. The rpi.gpio module needs to be installed via conda:
+6. install the rpi.gpio library
 
-```conda install -c ericmjl rpi.gpio```
+7. install kociemba library (python)
+    This requires the libffi library as well:
+
+    ```sudo apt-get install libffi-dev```
+    ```sudo pip install kociemba```
 
 
 TODO:
 -----
 
 curriculum outline
-
