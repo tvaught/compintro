@@ -72,6 +72,7 @@ sudo pip install jupyter
 sudo pip install gpio
 sudo pip install numpy
 # if numpy is already installed, you might want to try sudo pip install --upgrade numpy
+sudo apt-get install vim
 sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev gfortran # for scipy install
 sudo pip install scipy
 sudo pip install pandas
