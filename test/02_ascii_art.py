@@ -56,10 +56,9 @@ def handle_image_conversion(image_filepath):
 
 if __name__=='__main__':
 
-    #image_file_path = "../img/Shelton-150x150.jpg"
-    image_file_path = "../img/Tycho_Brahe.JPG"
+    image_file_path = "../img/test_portrait1.jpg"
     ascii_img = handle_image_conversion(image_file_path)
-    fh = open("../img/test.txt", 'w')
-    fh.write(ascii_img)
-    fh.close()
+    #fh = open("../img/test.txt", 'wa')
+    #fh.write(ascii_img)
+    #fh.close()
     print ascii_img
