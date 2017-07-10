@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Canvas Example</h1>
+<h3>Animating a Circle</h3>
+<p> We're using an animation frame to change the circle.</p>
+
+<canvas id="testCanvas" width="200" height="200"
+ style="border:1px solid #000000;">
+ Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+
+var c = document.getElementById("testCanvas");
+var ctx = c.getContext("2d");
+// Cross browser request animation frame function
+var requestAnimationFrame = window.requestAnimationFrame ||
+                            window.mozRequestAnimationFrame ||
+                            window.webkitRequestAnimationFrame ||
+                            window.msRequestAnimationFrame;
+var angle = 0;
+var canvasWidth = c.width;
+var canvasHeight = c.height;
+
+function drawCircle() {
+  var radius =  2 + 80 * Math.abs(Math.cos(angle));
+  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+  ctx.beginPath();
+  ctx.arc(100, 100, radius, 0, 2*Math.PI);
+  ctx.fillStyle="green";
+  ctx.fill();
+  ctx.strokeStyle="gray";
+  ctx.stroke();
+  angle += Math.PI / 256;
+  requestAnimationFrame(drawCircle);  // note: this happens about 60x/sec
+}
+
+drawCircle();
+
+</script>
+
+</body>
+</html>
