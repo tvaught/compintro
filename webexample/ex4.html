@@ -50,7 +50,7 @@ var ball = {
 var Cd = 0.47;  // Dimensionless
 var rho = 2.22; // kg / m^3
 var A = Math.PI * ball.radius * ball.radius / (10000); // m^2
-var ag = 9.81;  // m / s^2
+var ag = 1.6;  // m / s^2
 var mouse = {x: 0, y: 0, isDown: false};
 var colors=['red', 'green', 'blue']
 var count=0
@@ -134,7 +134,7 @@ var loop = function() {
 
     ctx.save();
     // uncomment the line below to change colors on collisions
-    //ctx.fillStyle = colors[count % 3];
+    ctx.fillStyle = colors[count % 3];
     ctx.translate(ball.position.x, ball.position.y);
     ctx.beginPath();
     ctx.arc(0, 0, ball.radius, 0, Math.PI*2, true);
